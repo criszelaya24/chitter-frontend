@@ -1,11 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import {BrowserRouter, Route} from 'react-router-dom';
 import Navbar from './Navbar/Navbar';
 import * as serviceWorker from './serviceWorker';
-
+import Test from './Navbar/Test'
+import './index.css';
 ReactDOM.render(
-  <Navbar />,
+  <BrowserRouter>
+  <Navbar />
+  <Route exact path='/Signup' component={Test}/>
+  </BrowserRouter>,
   document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
