@@ -8,7 +8,7 @@ function NavBar() {
       Chitter App
     </Link>
       <div>
-      <Link className="navbar-brand" to="/Signup">
+      <Link className="navbar-brand" to="/signup">
         <button className="btn btn-dark">Signup</button>
       </Link>
       </div>

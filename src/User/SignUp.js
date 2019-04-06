@@ -1,7 +1,7 @@
 import React from 'react'
 import  {withRouter} from 'react-router-dom';
 
-function Test() {
+function Signup() {
   return(
     <div>
     <h1>testing..</h1>
@@ -9,4 +9,4 @@ function Test() {
   )
 }
 
-export default withRouter(Test)
+export default withRouter(Signup)

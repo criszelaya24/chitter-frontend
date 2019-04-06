@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter, Route} from 'react-router-dom';
-import Navbar from './Navbar/Navbar';
 import * as serviceWorker from './serviceWorker';
-import Test from './Navbar/Test'
+import Navbar from './Navbar/Navbar';
+import Signup from './User/SignUp';
 import './index.css';
 ReactDOM.render(
   <BrowserRouter>
   <Navbar />
-  <Route exact path='/Signup' component={Test}/>
+  <Route exact path='/signup' component={Signup}/>
   </BrowserRouter>,
   document.getElementById('root'));
 
