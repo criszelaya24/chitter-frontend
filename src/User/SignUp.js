@@ -5,47 +5,105 @@ class Signup extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      loggedIn: false,
+      name: '',
+      username: '',
+      email: '',
+      password: '',
+      gender: '',
+      errorName: '',
+      errorUsername: '',
+      errorEmail: '',
+      errorPassword: '',
+      errorGender: '',
     }
+  }
+
+  updateName(value){
+    if (value === ''){
+      this.setState({
+        name: '',
+        errorName: "Cannot be empty"
+      })
+    }
+    this.setState({
+      name: value,
+    })
+  }
+
+  updateUsername(value){
+    if(value === '') this.setState({errorUsername: "Cannot be emty"});
+    this.setState({
+      username: value,
+    })
+  }
+
+  updateEmail(value){
+      if(value === '') this.setState({errorEmail: "Cannot be emty"});
+    this.setState({
+      email: value,
+    })
+  }
+
+  updatePassword(value){
+      if(value === '') this.setState({errorPassword: "Cannot be emty"});
+    this.setState({
+      password: value,
+    })
+  }
+
+  updateGender(value){
+      if(value === '') this.setState({errorGender: "Cannot be emty"});
+    this.setState({
+      gender: value,
+    })
+  }
+
+  submit(){
+
   }
 
   render(){
     return(
-      <div class="container test">
-      <img class="rounded-circle img" src={require('../img/signup.jpg')} />
+      <div className="container test">
+      <img className="rounded-circle img" src={require('../img/signup.jpg')} />
       <h1> Welcome to Chitter App!</h1>
-    <div class="row">
-      <div class="col">
-        <div class="form-group">
+    <div className="row">
+      <div className="col">
+        <div className="form-group">
           <label>Full name</label>
-          <input type="text" class="form-control" placeholder="Enter your name"/>
-          <small class="form-text text-muted">What's your name?.</small>
+          <input type="text" className="form-control" placeholder="Enter your name" onBlur={(e) => {this.updateName(e.target.value)}}/>
+          <small className="form-text text-muted">What's your name?.</small>
+          <p className="error">{this.state.errorName}</p>
       </div>
-      <div class="form-group">
+      <div className="form-group">
         <label>username</label>
-        <input type="text" class="form-control" placeholder="Username"/>
+        <input type="text" className="form-control" placeholder="Username" onBlur={(e) => {this.updateUsername(e.target.value)}}/>
+        <p className="error">{this.state.errorUsername}</p>
     </div>
       </div>
-      <div class="col">
-      <div class="form-group">
-        <label for="exampleInputEmail1">Email address</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"/>
-        <small id="emailHelp" class="form-text text-muted">We'll never share your email.</small>
+      <div className="col">
+      <div className="form-group">
+        <label htmlFor="exampleInputEmail1">Email address</label>
+        <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" onBlur={(e) => {this.updateEmail(e.target.value)}}/>
+        <small id="emailHelp" className="form-text text-muted">We'll never share your email.</small>
+        <p className="error">{this.state.errorEmail}</p>
     </div>
-    <div class="form-group">
-      <label for="exampleInputPassword1">Password</label>
-      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"/>
+    <div className="form-group">
+      <label htmlFor="exampleInputPassword1">Password</label>
+      <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password" onBlur={(e) => {this.updatePassword(e.target.value)}}/>
+      <p className="error">{this.state.errorPassword}</p>
       </div>
     </div>
     </div>
-    <div class= "input-group mb-3 small-select">
-    <select class="custom-select" id="inputGroupSelect01">
-        <option selected>Choose...</option>
+    <div className= "input-group mb-3 small-select">
+    <select className="custom-select" id="inputGroupSelect01" onBlur={(e) => {this.updateGender(e.target.value)}}>
+        <option selected value="">Choose...</option>
         <option value="F">Female</option>
         <option value="M">Male</option>
     </select>
     </div>
-    <button type="submit" class="btn btn-primary large-btn">Submit</button>
+      <p className="error">{this.state.errorGender}</p>
+    <button type="submit" className="btn btn-primary large-btn" onClick={() => {this.submit()}}>Submit</button>
   </div>
     )
   }
